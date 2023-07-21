@@ -1,6 +1,16 @@
 import { IGatsbyImageData } from "gatsby-plugin-image"
 
 export interface IPostItem {
+  node: {
+    excerpt: string
+    fields: {
+      slug: string
+    }
+    frontmatter: IPostFrontmatter
+  }
+}
+
+export interface IPostFrontmatter {
   title: string
   description: string
   date: string
@@ -8,18 +18,4 @@ export interface IPostItem {
   tags: string[]
   thumbnail: string
   link: string
-}
-
-export interface IPostList {
-  allMarkdownRemark: {
-    nodes: [
-      {
-        excerpt: string
-        fields: {
-          slug: string
-        }
-        frontmatter: IPostItem
-      }
-    ]
-  }
 }
