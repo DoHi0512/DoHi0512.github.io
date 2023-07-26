@@ -17,7 +17,11 @@ export const PostList = ({ postList }: { postList: IPostItem[] }) => {
       return <PostItem {...frontmatter} excerpt={excerpt} key={idx} />
     }
   )
-  return <div className="w-full grid grid-cols-3 gap-8">{List}</div>
+  return (
+    <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-8 lg:mt-10 mt-10">
+      {List}
+    </div>
+  )
 }
 
 export default PostList
