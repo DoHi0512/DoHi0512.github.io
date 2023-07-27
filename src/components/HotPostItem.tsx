@@ -10,12 +10,9 @@ const HotPostItem = ({
   link: string
 }) => {
   return (
-    <Link to={link}>
-      <div className="flex flex-col">
-        <img
-          src={thumbnail}
-          className="image-base border-[.5px] min-h-[14rem]"
-        />
+    <Link to={link} className="h-full">
+      <div className="flex flex-col h-full">
+        <img src={thumbnail} className="image-base border-[.5px] h-full" />
         <span className="mt-2 text-xl font-bold text-omit">{title}</span>
       </div>
     </Link>

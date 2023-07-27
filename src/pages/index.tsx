@@ -1,6 +1,6 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
+import { Link, graphql, useStaticQuery } from "gatsby"
+import Layout from "../components/Layout"
 import { PostList } from "../components/PostList"
 import { IPostItem } from "../types/PostItem.type"
 import HotPostList from "../components/HotPostList"
@@ -16,20 +16,21 @@ const BlogIndex = ({
     allMarkdownRemark: { edges },
   },
 }: IIndexPage) => {
-  console.log(edges)
   return (
     <Layout>
-      <HotPostList postList={edges} />
+      <HotPostList />
       <PostList postList={edges} />
     </Layout>
   )
 }
-export const metadataQuery = graphql`
+
+export const getPostList = graphql`
   {
     allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
       edges {
         node {
-          excerpt
+          id
+          excerpt(pruneLength: 120)
           fields {
             slug
           }
@@ -39,12 +40,11 @@ export const metadataQuery = graphql`
             description
             tags
             thumbnail
-            link
           }
+          rawMarkdownBody
         }
       }
     }
   }
 `
-
 export default BlogIndex
