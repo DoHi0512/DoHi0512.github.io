@@ -9,5 +9,6 @@ export interface IFuseItem {
     }
     frontmatter: IPostFrontmatter
     rawMarkdownBody: string
+    timeToRead: number
   }
 }
