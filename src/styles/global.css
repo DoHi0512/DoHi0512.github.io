@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  p {
+    @apply pt-1 pr-0;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-bold lg:mb-8 mb-3;
+  }
+  * + h1,
+  * + h2,
+  * + h3 {
+    @apply lg:mt-20 mt-8;
+  }
+
+  hr + h1,
+  hr + h2,
+  hr + h3 {
+    @apply mt-0;
+  }
+  h1 {
+    @apply lg:text-4xl text-2xl;
+  }
+
+  h2 {
+    @apply lg:text-3xl text-xl;
+  }
+
+  h3 {
+    @apply lg:text-2xl text-base;
+  }
+
+  blockquote {
+    @apply mt-8 mr-0 border-l-4 border-black rounded-tr-[4px] rounded-br-[4px] bg-Grayscale/10 p-[1rem_1rem_1rem_2rem] text-white;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+  ul {
+    @apply list-disc;
+  }
+
+  ol,
+  ul {
+    @apply ml-5 pt-8 pr-0;
+  }
+
+  hr {
+    @apply border-black border-[1px] lg:mt-24 mt-12 mr-0;
+  }
+
+  pre[class*="language-"] {
+    @apply lg:mt-8 mr-0 mt-5  p-4 lg:text-base text-xs;
+
+    ::-webkit-scrollbar-thumb {
+      @apply bg-[rgba(255,_255,_255,_0.5)] rounded-sm;
+    }
+  }
+
+  code[class*="language-"],
+  pre[class*="language-"] {
+    tab-size: 2;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "nanum-gothic";
+}
+
+html,
+body,
+#___gatsby {
+  height: 100%;
+}
+.image-base {
+  @apply rounded-md object-cover w-full;
+}
+
+.text-omit {
+  @apply text-ellipsis whitespace-nowrap break-all overflow-hidden;
+}
