@@ -43,7 +43,6 @@
   ul {
     @apply list-disc;
   }
-
   ol,
   ul {
     @apply ml-5 pt-8 pr-0;
@@ -79,6 +78,21 @@ body,
 #___gatsby {
   height: 100%;
 }
+
+body {
+  --bg-color: #f2f2f2;
+  --text-color: black;
+  --tag-bg: #f4f4f4;
+  --excerpt: #475467;
+}
+
+body.dark {
+  --bg-color: #121212;
+  --text-color: white;
+  --tag-bg: #48484a;
+  --excerpt: white;
+}
+
 .image-base {
   @apply rounded-md object-cover w-full;
 }
