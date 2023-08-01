@@ -9,11 +9,11 @@ const SearchBar = ({ setData }: { setData: (v: any) => void }) => {
     450
   )
   return (
-    <div className="flex flex-row h-[3rem] items-center mt-24">
-      <AiOutlineSearch className="absolute pl-2" size={"2rem"} />
+    <div className="flex flex-row h-[3rem] items-center mt-24 ">
+      <AiOutlineSearch className="absolute pl-2 text-black" size={"2rem"} />
       <input
         placeholder="제목으로 검색"
-        className="w-[30rem] outline-none h-full pl-12 rounded-xl text-lg"
+        className="w-[30rem] outline-none h-full pl-12 rounded-xl text-lg border-[.5px] text-black"
         onChange={debounceOnChange}
       />
     </div>
