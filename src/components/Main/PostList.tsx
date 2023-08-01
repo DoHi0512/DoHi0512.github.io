@@ -1,9 +1,9 @@
-import { IPostItem } from "../types/PostItem.type"
+import { IPostItem } from "../../types/PostItem.type"
 import React from "react"
 import PostItem from "./PostItem"
 import Fuse from "fuse.js"
 import { graphql, useStaticQuery } from "gatsby"
-import SearchBar from "./SearchBar"
+import SearchBar from "../Shared/SearchBar"
 import { IFuseItem } from "src/types/Fuse.type"
 export const PostList = ({ postList }: { postList: IPostItem[] }) => {
   const data = useStaticQuery(graphql`
@@ -11,7 +11,7 @@ export const PostList = ({ postList }: { postList: IPostItem[] }) => {
       allMarkdownRemark {
         nodes {
           id
-          excerpt(pruneLength: 250)
+          excerpt(pruneLength: 120)
           fields {
             slug
           }
@@ -23,6 +23,7 @@ export const PostList = ({ postList }: { postList: IPostItem[] }) => {
             thumbnail
           }
           rawMarkdownBody
+          timeToRead
         }
       }
     }
@@ -39,10 +40,17 @@ export const PostList = ({ postList }: { postList: IPostItem[] }) => {
         fields: { slug },
         frontmatter,
         id,
+        timeToRead,
       },
     }: IFuseItem) => {
       return (
-        <PostItem {...frontmatter} excerpt={excerpt} key={id} link={slug} />
+        <PostItem
+          {...frontmatter}
+          excerpt={excerpt}
+          key={id}
+          link={slug}
+          timeToRead={timeToRead}
+        />
       )
     }
   )
@@ -53,18 +61,29 @@ export const PostList = ({ postList }: { postList: IPostItem[] }) => {
         fields: { slug },
         frontmatter,
         id,
+        timeToRead,
       },
     }: IPostItem) => {
       return (
-        <PostItem {...frontmatter} excerpt={excerpt} key={id} link={slug} />
+        <PostItem
+          {...frontmatter}
+          excerpt={excerpt}
+          key={id}
+          link={slug}
+          timeToRead={timeToRead}
+        />
       )
     }
   )
   return (
     <div>
       <SearchBar setData={setQuery} />
-      <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-8 lg:mt-10 mt-10">
-        {query ? QueryList : AllList}
+      <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-14 lg:mt-10 mt-10">
+        {query
+          ? QueryList.length
+            ? QueryList
+            : "검색 결과가 없습니다!"
+          : AllList}
       </div>
     </div>
   )

@@ -12,7 +12,7 @@ const HotPostItem = ({
   return (
     <Link to={link} className="h-full">
       <div className="flex flex-col h-full">
-        <img src={thumbnail} className="image-base border-[.5px] h-full" />
+        <img src={thumbnail} className="image-base  h-full" />
         <span className="mt-2 text-xl font-bold text-omit">{title}</span>
       </div>
     </Link>
