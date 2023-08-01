@@ -22,14 +22,13 @@ module.exports = {
   },
   plugins: [
     `gatsby-transformer-remark`,
-    `gatsby-plugin-typescript`,
-    "gatsby-plugin-postcss",
     `gatsby-plugin-image`,
+    "gatsby-plugin-mdx",
+    "gatsby-plugin-dark-mode",
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-plugin-postcss`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
+        postCssPlugins: [require("tailwindcss"), require("autoprefixer")],
       },
     },
     {
@@ -39,6 +38,35 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `components`,
+        path: `${__dirname}/src/components`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `templates`,
+        path: `${__dirname}/src/templates`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/`,
+        name: `blog`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-typescript",
+      options: {
+        isTSX: true,
+        allExtensions: true,
+      },
+    },
+
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -110,18 +138,18 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `Gatsby`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
-        display: `minimal-ui`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `Gatsby Starter Blog`,
+    //     short_name: `Gatsby`,
+    //     start_url: `/`,
+    //     background_color: `#ffffff`,
+    //     // This will impact how browsers show your PWA/website
+    //     // https://css-tricks.com/meta-theme-color-and-trickery/
+    //     // theme_color: `#663399`,
+    //     display: `minimal-ui`,
+    //   },
+    // },
   ],
 }
