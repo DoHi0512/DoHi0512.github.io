@@ -4,6 +4,7 @@ import { IPostItem } from "src/types/PostItem.type"
 import PostContent from "../components/Post/PostContent"
 import Layout from "../components/Shared/Layout"
 import PostLayout from "../components/Post/PostLayout"
+import PostHeader from "../components/Post/PostHeader"
 
 interface IPostTemplateProps {
   data: {
@@ -21,15 +22,15 @@ const PostTemplate = ({
   },
 }: IPostTemplateProps) => {
   const {
-    node: {
-      html,
-      frontmatter: { title, date, tags, thumbnail },
-    },
+    node: { html, frontmatter },
   } = edges[0]
   return (
-    <PostLayout>
-      <PostContent html={html} />
-    </PostLayout>
+    <>
+      <PostLayout>
+        <PostHeader {...frontmatter} />
+        <PostContent html={html} />
+      </PostLayout>
+    </>
   )
 }
 

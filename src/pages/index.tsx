@@ -1,9 +1,9 @@
 import * as React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import Layout from "../components/Layout"
-import { PostList } from "../components/PostList"
+import Layout from "../components/Shared/Layout"
+import { PostList } from "../components/Main/PostList"
 import { IPostItem } from "../types/PostItem.type"
-import HotPostList from "../components/HotPostList"
+import HotPostList from "../components/Main/HotPostList"
 interface IIndexPage {
   data: {
     allMarkdownRemark: {
@@ -30,7 +30,7 @@ export const getPostList = graphql`
       edges {
         node {
           id
-          excerpt(pruneLength: 120)
+          excerpt(pruneLength: 50)
           fields {
             slug
           }
@@ -42,6 +42,7 @@ export const getPostList = graphql`
             thumbnail
           }
           rawMarkdownBody
+          timeToRead
         }
       }
     }

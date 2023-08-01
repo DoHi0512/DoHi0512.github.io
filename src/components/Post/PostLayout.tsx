@@ -1,8 +1,10 @@
 import React from "react"
+import Header from "../Shared/Header"
 const PostLayout = ({ children }: any) => {
   return (
-    <div className="w-full flex justify-center">
-      <div className="lg:w-1/2 w-4/5 text-blue">{children}</div>
+    <div className="w-full duration-300 flex flex-col items-center bg-bg-color">
+      <Header width="4/5" />
+      {children}
     </div>
   )
 }
