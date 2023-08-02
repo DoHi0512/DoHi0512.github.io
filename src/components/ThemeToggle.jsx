@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { ThemeToggler } from "gatsby-plugin-dark-mode"
 import { BsFillMoonFill } from "react-icons/bs"
 const ThemeButton = () => {
-  const [moveX, setMoveX] = useState(0)
   return (
     <ThemeToggler>
       {({ theme, toggleTheme }) => (
@@ -10,12 +9,13 @@ const ThemeButton = () => {
           className="w-24 h-8 rounded-2xl bg-white flex flex-row items-center relative justify-end"
           onClick={() => {
             toggleTheme(theme === "light" ? "dark" : "light")
-            setMoveX(moveX === 0 ? -1.6 : 0)
           }}
         >
           <div
             className="w-full h-full flex items-center rounded-2xl bg-black justify-between z-10"
-            style={{ transform: `translateX(${moveX}rem)` }}
+            style={{
+              transform: `translateX(${theme === "light" ? 0 : -1.6}rem)`,
+            }}
           >
             <BsFillMoonFill size={"1rem"} color="white" className="ml-3" />
             <span className="text-sm mr-3 text-white">다크모드</span>
