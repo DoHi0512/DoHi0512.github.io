@@ -22,7 +22,6 @@ export const PostList = ({ postList }: { postList: IPostItem[] }) => {
             tags
             thumbnail
           }
-          rawMarkdownBody
           timeToRead
         }
       }

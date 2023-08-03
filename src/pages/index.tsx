@@ -30,7 +30,6 @@ export const getPostList = graphql`
       edges {
         node {
           id
-          excerpt(pruneLength: 50)
           fields {
             slug
           }
@@ -41,7 +40,6 @@ export const getPostList = graphql`
             tags
             thumbnail
           }
-          rawMarkdownBody
           timeToRead
         }
       }
