@@ -9,12 +9,12 @@ const PostContent = ({
   tableOfContents: string
 }) => {
   return (
-    <div className="w-full h-full pt-20 pb-20 relative flex flex-row lg:justify-end justify-center">
+    <div className="w-full h-full pt-40 pb-20 relative flex flex-row lg:justify-end justify-center">
       <div
-        className="lg:w-1/2 w-4/5 pt-20 pb-20 markdown"
+        className="lg:w-1/2 w-4/5 markdown"
         dangerouslySetInnerHTML={{ __html: html }}
       />
-      <div className="sticky top-20 h-full whitespace-nowrap w-1/4 pl-10 lg:flex hidden sidebar mt-20">
+      <div className="sticky top-20 h-full whitespace-nowrap w-1/4 pl-10 lg:flex hidden sidebar">
         <div
           className="border-l-[1px] border-Grayscale/30"
           dangerouslySetInnerHTML={{ __html: tableOfContents }}

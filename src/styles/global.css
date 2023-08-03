@@ -122,3 +122,7 @@ body.dark {
 .text-omit {
   @apply text-ellipsis whitespace-nowrap break-all overflow-hidden;
 }
+
+.utterances {
+  @apply w-1/2 max-w-none;
+}
