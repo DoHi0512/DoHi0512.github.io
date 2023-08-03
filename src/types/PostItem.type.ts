@@ -11,6 +11,7 @@ export interface IPostItem {
     frontmatter: IPostFrontmatter
     rawMarkdownBody: string
     timeToRead: number
+    tableOfContents: string
   }
 }
 

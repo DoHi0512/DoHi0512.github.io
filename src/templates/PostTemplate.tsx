@@ -1,19 +1,17 @@
-import React, { FunctionComponent } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import { IPostItem } from "src/types/PostItem.type"
 import PostContent from "../components/Post/PostContent"
-import Layout from "../components/Shared/Layout"
+
 import PostLayout from "../components/Post/PostLayout"
 import PostHeader from "../components/Post/PostHeader"
+import Comments from "../components/Post/Comments"
 
 interface IPostTemplateProps {
   data: {
     allMarkdownRemark: {
       edges: IPostItem[]
     }
-  }
-  location: {
-    href: string
   }
 }
 const PostTemplate = ({
@@ -22,13 +20,14 @@ const PostTemplate = ({
   },
 }: IPostTemplateProps) => {
   const {
-    node: { html, frontmatter },
+    node: { html, frontmatter, tableOfContents },
   } = edges[0]
   return (
     <>
       <PostLayout>
         <PostHeader {...frontmatter} />
-        <PostContent html={html} />
+        <PostContent html={html} tableOfContents={tableOfContents} />
+        <Comments repo="DoHi0512/DoHi0512.github.io" theme="github-light" />
       </PostLayout>
     </>
   )
@@ -48,6 +47,7 @@ export const queryMarkdownDataBySlug = graphql`
             tags
             thumbnail
           }
+          tableOfContents
         }
       }
     }

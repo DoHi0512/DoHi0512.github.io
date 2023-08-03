@@ -76,7 +76,16 @@
     @apply bg-bg-color2 !important;
   }
 }
-
+.markdown a {
+  @apply text-Greenlight/10;
+}
+.sidebar * {
+  @apply text-Grayscale/30 mt-2 pt-0 text-sm;
+}
+.sidebar ol,
+.sidebar ul {
+  @apply ml-5 pr-0 list-none;
+}
 * {
   padding: 0;
   margin: 0;
@@ -92,7 +101,7 @@ body,
 
 body {
   --bg-color: #f2f2f2;
-  --text-color: black;
+  --text-color: #121212;
   --bg-color2: #f8f9fa;
   --excerpt: #475467;
   --prism-default-text: #24292e;
