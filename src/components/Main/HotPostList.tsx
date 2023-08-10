@@ -29,14 +29,14 @@ const HotPostList = () => {
     <div className=" w-full lg:flex hidden [&>div]:flex [&>div]:flex-col [&>div]:justify-between justify-between mt-16 ">
       <div className="w-3/5">
         <span className="text-6xl font-bold">최근 등록된 글</span>
-        <Link to={postList[0].fields.slug} className="h-full mt-4 ">
+        <Link to={postList[0].fields.slug} className="h-full mt-1 ">
+          <img
+            src={postList[0].frontmatter.thumbnail}
+            className="image-base min-h-[90%] mb-2"
+          />
           <span className="text-4xl font-bold text-omit">
             {postList[0].frontmatter.title}
           </span>
-          <img
-            src={postList[0].frontmatter.thumbnail}
-            className="image-base min-h-[90%] mt-4"
-          />
         </Link>
       </div>
       <div className="w-[35%] [&>a]:mt-4">

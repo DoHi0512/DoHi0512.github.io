@@ -9,7 +9,9 @@ const PostHeader = ({ title, thumbnail, date, tags }: IPostFrontmatter) => {
         src={thumbnail}
       />
       <div className="absolute flex flex-col items-center">
-        <span className="text-4xl text-white font-bold">{title}</span>
+        <span className="lg:text-4xl text-3xl text-white font-bold">
+          {title}
+        </span>
         <span className="text-sm text-white mt-2">{date}</span>
         <span className="text-sm text-white mt-2">{tags.join("/")}</span>
       </div>

@@ -9,7 +9,6 @@ export interface IUtterancesProps {
 
 const Comments: React.FC<IUtterancesProps> = React.memo(({ repo, theme }) => {
   const containerRef = createRef<HTMLDivElement>()
-
   useLayoutEffect(() => {
     const utterances = document.createElement("script")
 

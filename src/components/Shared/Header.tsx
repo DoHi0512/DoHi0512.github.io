@@ -5,11 +5,10 @@ import { Link } from "gatsby"
 export const Header = ({ width }: { width: string }) => {
   return (
     <div
-      className={`items-center w-${width} h-16 text-3xl font-bold flex justify-between [&>*]:text-text-color`}
+      className={`items-center w-${width} h-16 lg:text-3xl text-2xl font-bold flex justify-between [&>*]:text-text-color`}
     >
       <Link to="/">dohi.log</Link>
       <div className="flex justify-between items-center">
-        {/* <span className="mr-8"></span> */}
         <ThemeToggler />
       </div>
     </div>
