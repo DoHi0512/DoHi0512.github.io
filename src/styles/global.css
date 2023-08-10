@@ -62,10 +62,13 @@
     @apply lg:mt-8 mr-0 mt-5  p-4 lg:text-base text-xs;
 
     ::-webkit-scrollbar-thumb {
-      @apply bg-[rgba(255,_255,_255,_0.5)] rounded-sm;
+      @apply rounded-sm;
     }
   }
 
+  code[class*="language-text"] {
+    @apply bg-bg-color2 !important;
+  }
   code[class*="language-"],
   pre[class*="language-"] {
     @apply text-prism-default-text bg-bg-color2;
@@ -85,6 +88,21 @@
 .sidebar ol,
 .sidebar ul {
   @apply ml-5 pr-0 list-none;
+}
+.sidebar .level-2 {
+  @apply ml-4;
+}
+.sidebar .level-3 {
+  @apply ml-8;
+}
+.sidebar .level-4 {
+  @apply ml-12;
+}
+.sidebar .level-5 {
+  @apply ml-16;
+}
+.sidebar .focus {
+  @apply text-text-color translate-x-[-0.3rem] duration-300;
 }
 * {
   padding: 0;
@@ -124,5 +142,5 @@ body.dark {
 }
 
 .utterances {
-  @apply w-1/2 max-w-none;
+  @apply lg:w-1/2 w-4/5 max-w-none;
 }
