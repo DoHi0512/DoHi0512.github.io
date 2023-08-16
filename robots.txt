@@ -1,2 +1,4 @@
 User-agent: *
-Disallow:
+Allow: /
+Sitemap: https://dohi0512.github.io/sitemap.xml
+Host: https://dohi0512.github.io
