@@ -2,12 +2,11 @@ import React from "react"
 import { graphql } from "gatsby"
 import { IPostItem } from "src/types/PostItem.type"
 import PostContent from "../components/Post/PostContent"
-
-import PostLayout from "../components/Post/PostLayout"
 import PostHeader from "../components/Post/PostHeader"
 import Comments from "../components/Post/Comments"
 import { useRecoilValue } from "recoil"
 import { themeState } from "../state/Theme"
+import Layout from "../components/Shared/Layout"
 
 interface IPostTemplateProps {
   data: {
@@ -22,19 +21,19 @@ const PostTemplate = ({
   },
 }: IPostTemplateProps) => {
   const {
-    node: { html, frontmatter, tableOfContents },
+    node: { html, frontmatter },
   } = edges[0]
   const theme = useRecoilValue(themeState)
   return (
     <>
-      <PostLayout>
+      <Layout width="w-full">
         <PostHeader {...frontmatter} />
         <PostContent html={html} />
         <Comments
           repo="DoHi0512/DoHi0512.github.io"
           theme={`github-${theme}`}
         />
-      </PostLayout>
+      </Layout>
     </>
   )
 }
@@ -51,7 +50,11 @@ export const queryMarkdownDataBySlug = graphql`
             title
             date(formatString: "YYYY.MM.DD")
             tags
-            thumbnail
+            thumbnail {
+              childImageSharp {
+                gatsbyImageData(width: 768, height: 400)
+              }
+            }
           }
         }
       }

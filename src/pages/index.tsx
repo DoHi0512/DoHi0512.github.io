@@ -1,9 +1,10 @@
 import * as React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/Shared/Layout"
-import { PostList } from "../components/Main/PostList"
+import { PostList } from "../components/Main/post/PostList"
 import { IPostItem } from "../types/PostItem.type"
-import HotPostList from "../components/Main/HotPostList"
+import RecentPostList from "../components/Main/recent/RecentPostList"
+import Header from "../components/Shared/Header"
 interface IIndexPage {
   data: {
     allMarkdownRemark: {
@@ -17,10 +18,12 @@ const BlogIndex = ({
   },
 }: IIndexPage) => {
   return (
-    <Layout>
-      <HotPostList />
-      <PostList postList={edges} />
-    </Layout>
+    <>
+      <RecentPostList postList={edges} />
+      <Layout width="w-4/5">
+        <PostList postList={edges} />
+      </Layout>
+    </>
   )
 }
 
@@ -38,7 +41,11 @@ export const getPostList = graphql`
             title
             description
             tags
-            thumbnail
+            thumbnail {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
           }
           timeToRead
         }

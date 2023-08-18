@@ -1,9 +1,9 @@
-import { IPostItem } from "../../types/PostItem.type"
+import { IPostItem } from "../../../types/PostItem.type"
 import React from "react"
 import PostItem from "./PostItem"
 import Fuse from "fuse.js"
 import { graphql, useStaticQuery } from "gatsby"
-import SearchBar from "../Shared/SearchBar"
+import SearchBar from "../../Shared/SearchBar"
 import { IFuseItem } from "src/types/Fuse.type"
 export const PostList = ({ postList }: { postList: IPostItem[] }) => {
   const data = useStaticQuery(graphql`
@@ -20,7 +20,11 @@ export const PostList = ({ postList }: { postList: IPostItem[] }) => {
             title
             description
             tags
-            thumbnail
+            thumbnail {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
           }
           timeToRead
         }

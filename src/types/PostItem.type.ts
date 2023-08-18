@@ -11,15 +11,18 @@ export interface IPostItem {
     frontmatter: IPostFrontmatter
     rawMarkdownBody: string
     timeToRead: number
-    tableOfContents: string
   }
 }
 
 export interface IPostFrontmatter {
   title: string
   description: string
-  date: string
-  excerpt: string
-  tags: string[]
-  thumbnail: string
+  date?: string
+  excerpt?: string
+  tags?: string[]
+  thumbnail: {
+    childImageSharp: {
+      gatsbyImageData: IGatsbyImageData
+    }
+  }
 }
