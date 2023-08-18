@@ -8,9 +8,10 @@ import "@fontsource/nanum-gothic"
 import "prismjs/themes/prism.css"
 
 import "./src/styles/global.css"
+import React from "react"
 
 import { RecoilRoot } from "recoil"
-import React from "react"
+
 export const wrapRootElement = ({ element }) => {
   return <RecoilRoot>{element}</RecoilRoot>
 }

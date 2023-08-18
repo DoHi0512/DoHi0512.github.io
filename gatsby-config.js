@@ -1,43 +1,51 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
-
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `DoHi Blog`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Lee Dong Hun`,
+      summary: `Frontend Developer`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `DoHi's TechBlog`,
+    siteUrl: `https://dohi0512.github.io/`,
     social: {
-      twitter: `kylemathews`,
+      instagram: `donghuni_512`,
     },
   },
+  // flags: {
+  //   DEV_SSR: true,
+  // },
   plugins: [
-    `gatsby-transformer-remark`,
     `gatsby-plugin-image`,
     "gatsby-plugin-mdx",
+    "gatsby-plugin-sitemap",
     "gatsby-plugin-dark-mode",
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://dohi0512.github.io/",
+        sitemap: "https://dohi0512.github.io/sitemap.xml",
+        policy: [
+          {
+            userAgent: "*",
+            allow: "/",
+            sitemap: "https://dohi0512.github.io/sitemap-index.xml",
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/content/`,
+      },
+    },
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [require("tailwindcss"), require("autoprefixer")],
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     name: `images`,
-    //     path: `${__dirname}/src/images`,
-    //   },
-    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -70,13 +78,16 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        plugins: [`gatsby-remark-copy-linked-files`],
         plugins: [
-          `gatsby-remark-autolink-headers`,
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              isIconAfterHeader: false,
+            },
+          },
           {
             resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 630,
-            },
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
@@ -139,18 +150,9 @@ module.exports = {
         ],
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `Gatsby Starter Blog`,
-    //     short_name: `Gatsby`,
-    //     start_url: `/`,
-    //     background_color: `#ffffff`,
-    //     // This will impact how browsers show your PWA/website
-    //     // https://css-tricks.com/meta-theme-color-and-trickery/
-    //     // theme_color: `#663399`,
-    //     display: `minimal-ui`,
-    //   },
-    // },
   ],
 }
+
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})

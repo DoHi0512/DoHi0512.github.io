@@ -23,7 +23,8 @@ module.exports = {
       excerpt: "var(--excerpt)",
       "post-bg": "var(--post-bg)",
       "prism-default-text": "var(--prism-default-text)",
+      "bg-inline": "var(--bg-inline)",
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [],
 }
