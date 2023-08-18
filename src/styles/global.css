@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
 @layer base {
   * {
     @apply tracking-wide;
@@ -67,7 +70,7 @@
   }
 
   code[class*="language-text"] {
-    @apply bg-bg-color2 !important;
+    @apply bg-bg-inline text-text-color !important;
   }
   code[class*="language-"],
   pre[class*="language-"] {
@@ -89,11 +92,15 @@
 .sidebar ul {
   @apply ml-5 pr-0 list-none;
 }
+
+.sidebar .level-1 {
+  @apply ml-3;
+}
 .sidebar .level-2 {
-  @apply ml-4;
+  @apply ml-6;
 }
 .sidebar .level-3 {
-  @apply ml-8;
+  @apply ml-9;
 }
 .sidebar .level-4 {
   @apply ml-12;
@@ -114,7 +121,13 @@
 html,
 body,
 #___gatsby {
+  transition: 0.3s;
+  background-color: var(--bg-color);
   height: 100%;
+}
+
+.darkmode {
+  @apply translate-x-[-1.6rem] duration-300;
 }
 
 body {
@@ -123,6 +136,7 @@ body {
   --bg-color2: #f8f9fa;
   --excerpt: #475467;
   --prism-default-text: #24292e;
+  --bg-inline: #e9ecef;
 }
 
 body.dark {
@@ -131,10 +145,7 @@ body.dark {
   --bg-color2: #1e1e1e;
   --excerpt: white;
   --prism-default-text: #e0e6f1;
-}
-
-.image-base {
-  @apply rounded-md object-cover w-full;
+  --bg-inline: #363636;
 }
 
 .text-omit {

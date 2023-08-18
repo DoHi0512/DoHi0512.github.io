@@ -13,7 +13,7 @@ const SearchBar = ({ setData }: { setData: (v: any) => void }) => {
       <AiOutlineSearch className="absolute pl-2 text-black" size={"2rem"} />
       <input
         placeholder="제목으로 검색"
-        className="w-[30rem] outline-none h-full pl-12 rounded-xl text-lg border-[.5px] text-black"
+        className="w-[30rem] outline-none h-full pl-12 rounded-xl text-lg border-[1px] text-Grayscale/20 bg-[#f2f2f2]"
         onChange={debounceOnChange}
       />
     </div>
