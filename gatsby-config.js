@@ -1,23 +1,20 @@
 module.exports = {
   siteMetadata: {
-    title: `DoHi Blog`,
+    title: `donglog`,
     author: {
       name: `Lee Dong Hun`,
       summary: `Frontend Developer`,
     },
-    description: `DoHi's TechBlog`,
+    description: `donghun's TechBlog`,
     siteUrl: `https://dohi0512.github.io/`,
     social: {
       instagram: `donghuni_512`,
     },
   },
-  // flags: {
-  //   DEV_SSR: true,
-  // },
   plugins: [
     `gatsby-plugin-image`,
     "gatsby-plugin-mdx",
-    "gatsby-plugin-sitemap",
+    "gatsby-plugin-advanced-sitemap",
     "gatsby-plugin-dark-mode",
     {
       resolve: "gatsby-plugin-robots-txt",
@@ -31,6 +28,13 @@ module.exports = {
             sitemap: "https://dohi0512.github.io/sitemap-index.xml",
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        trackingId: `G-5RYVH9JQKE`,
+        head: true,
       },
     },
     {
@@ -102,54 +106,60 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.nodes.map(node => {
-                return Object.assign({}, node.frontmatter, {
-                  description: node.excerpt,
-                  date: node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ "content:encoded": node.html }],
-                })
-              })
-            },
-            query: `{
-              allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
-                nodes {
-                  excerpt
-                  html
-                  fields {
-                    slug
-                  }
-                  frontmatter {
-                    title
-                    date
-                  }
-                }
-              }
-            }`,
-            output: "/rss.xml",
-            title: "Gatsby Starter Blog RSS Feed",
-          },
-        ],
+        icon: `src/assets/logo.png`,
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-feed`,
+    //   options: {
+    //     query: `
+    //       {
+    //         site {
+    //           siteMetadata {
+    //             title
+    //             description
+    //             siteUrl
+    //             site_url: siteUrl
+    //           }
+    //         }
+    //       }
+    //     `,
+    //     feeds: [
+    //       {
+    //         serialize: ({ query: { site, allMarkdownRemark } }) => {
+    //           return allMarkdownRemark.nodes.map(node => {
+    //             return Object.assign({}, node.frontmatter, {
+    //               description: node.excerpt,
+    //               date: node.frontmatter.date,
+    //               url: site.siteMetadata.siteUrl + node.fields.slug,
+    //               guid: site.siteMetadata.siteUrl + node.fields.slug,
+    //               custom_elements: [{ "content:encoded": node.html }],
+    //             })
+    //           })
+    //         },
+    //         query: `{
+    //           allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
+    //             nodes {
+    //               excerpt
+    //               html
+    //               fields {
+    //                 slug
+    //               }
+    //               frontmatter {
+    //                 title
+    //                 date
+    //               }
+    //             }
+    //           }
+    //         }`,
+    //         output: "/rss.xml",
+    //         title: "Gatsby Starter Blog RSS Feed",
+    //       },
+    //     ],
+    //   },
+    // },
   ],
 }
 
