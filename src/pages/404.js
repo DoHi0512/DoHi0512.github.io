@@ -1,30 +1,39 @@
 import * as React from "react"
-import { graphql } from "gatsby"
-
-import Layout from "../components/Shared/Layout"
-import Seo from "../components/seo"
-
+import LottieLight from "../assets/light.json"
+import LottieDark from "../assets/dark.json"
+import Layout from "../components/shared/Layout"
+import Seo from "../components/shared/seo"
+import Lottie from "react-lottie"
+import { useRecoilValue } from "recoil"
+import { themeState } from "../state/Theme"
+import { Link } from "gatsby"
 const NotFoundPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
-
+  const theme = useRecoilValue(themeState)
+  const defaultOption = {
+    loop: false,
+    autoplay: true,
+    animationData: theme === "light" ? LottieLight : LottieDark,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  }
   return (
     <Layout>
-      <h1>404: Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <Seo title="404:Not Found" description="페이지를 찾을수 없음" />
+      <div className="flex justify-center items-center flex-col mt-16">
+        <Lottie options={defaultOption} className="h-full w-full" l />
+        <span className="text-4xl font-bold text-text-color">
+          아무것도 없네요!
+        </span>
+        <Link
+          to="/"
+          className="w-[6rem] h-[3rem] flex justify-center items-center bg-Greenlight/10 text-xl text-bg-color2 mt-12 rounded-md"
+        >
+          홈으로
+        </Link>
+      </div>
     </Layout>
   )
 }
 
-// export const Head = () => <Seo title="404: Not Found" />
-
 export default NotFoundPage
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
