@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useIntersectionObserver } from "../hooks/useIntersactionObserver"
+import { useIntersectionObserver } from "../../hooks/useIntersactionObserver"
 import { IHeadings } from "src/types/Post.type"
 import TOC from "./TOC"
 const PostContent = ({ html }: { html: string }) => {
