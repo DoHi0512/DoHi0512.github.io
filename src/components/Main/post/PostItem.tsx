@@ -1,7 +1,7 @@
 import React from "react"
 import { IPostFrontmatter } from "../../../types/PostItem.type"
 import { Link } from "gatsby"
-import Tag from "../Tag"
+import Tag from "./Tag"
 import { GatsbyImage } from "gatsby-plugin-image"
 interface IPostItemProps extends IPostFrontmatter {
   link: string
@@ -18,7 +18,6 @@ export const PostItem = ({
   link,
   timeToRead,
 }: IPostItemProps) => {
-  console.log(timeToRead)
   return (
     <Link
       to={link}
@@ -31,7 +30,7 @@ export const PostItem = ({
       />
       <div className="w-[85%] flex flex-col ">
         <span className="text-2xl font-bold text-omit mt-4">{title}</span>
-        <span className="text-excerpt mt-2">{description}</span>
+        <span className="text-excerpt mt-2 h-[3rem]">{description}</span>
         <div className="flex flex-row mt-6">
           {tags?.map((tag, idx) => (
             <Tag tag={tag} key={idx} />
