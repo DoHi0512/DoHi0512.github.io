@@ -3,14 +3,16 @@
 @tailwind utilities;
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
-
 @layer base {
+  table :is(td, th) {
+    @apply border-[1px] border-text-color p-1;
+  }
   * {
     @apply tracking-wide;
   }
 
   p {
-    @apply pt-2 pr-0;
+    @apply pt-4 pr-0;
   }
   h1,
   h2,
@@ -45,7 +47,9 @@
   blockquote {
     @apply mt-8 mr-0 border-l-4 border-[#20c997] rounded-tr-[4px] rounded-br-[4px] bg-bg-color2 p-[1rem_1rem_1rem_2rem] text-text-color;
   }
-
+  blockquote p {
+    @apply pt-0;
+  }
   ol {
     @apply list-decimal;
   }
@@ -82,8 +86,14 @@
     @apply bg-bg-color2 !important;
   }
 }
+.markdown * {
+  @apply break-words;
+}
 .markdown a {
   @apply text-Greenlight/10;
+}
+.markdown img {
+  @apply mt-[3rem];
 }
 .sidebar * {
   @apply text-Grayscale/30 mt-2 pt-0 text-sm;
@@ -131,9 +141,9 @@ body,
 }
 
 body {
-  --bg-color: #f2f2f2;
+  --bg-color: #f8f9fa;
   --text-color: #121212;
-  --bg-color2: #f8f9fa;
+  --bg-color2: white;
   --excerpt: #475467;
   --prism-default-text: #24292e;
   --bg-inline: #e9ecef;
@@ -154,4 +164,8 @@ body.dark {
 
 .utterances {
   @apply lg:w-1/2 w-4/5 max-w-none;
+}
+
+.scroll-hidden::-webkit-scrollbar {
+  display: none; /* 크롬, 사파리, 오페라, 엣지 */
 }
