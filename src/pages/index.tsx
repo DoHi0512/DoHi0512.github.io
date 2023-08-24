@@ -1,10 +1,10 @@
 import * as React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
-import Layout from "../components/Shared/Layout"
-import { PostList } from "../components/Main/post/PostList"
+import { graphql } from "gatsby"
+import Layout from "../components/shared/Layout"
+import { PostList } from "../components/main/post/PostList"
 import { IPostItem } from "../types/PostItem.type"
-import RecentPostList from "../components/Main/recent/RecentPostList"
-import Header from "../components/Shared/Header"
+import RecentPostList from "../components/main/recent/RecentPostList"
+import Seo from "../components/shared/seo"
 interface IIndexPage {
   data: {
     allMarkdownRemark: {
@@ -19,6 +19,7 @@ const BlogIndex = ({
 }: IIndexPage) => {
   return (
     <>
+      <Seo title="donglog" description="donghun's TechBlog" />
       <RecentPostList postList={edges} />
       <Layout width="w-4/5">
         <PostList postList={edges} />
@@ -37,7 +38,7 @@ export const getPostList = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "YYYY.MM.DD")
             title
             description
             tags
