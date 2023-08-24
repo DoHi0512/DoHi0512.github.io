@@ -20,9 +20,7 @@ const PostTemplate = ({
     allMarkdownRemark: { edges },
   },
 }: IPostTemplateProps) => {
-  const {
-    node: { html, frontmatter },
-  } = edges[0]
+  const { html, frontmatter } = edges[0]
   const theme = useRecoilValue(themeState)
   return (
     <>

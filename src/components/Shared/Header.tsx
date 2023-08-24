@@ -16,12 +16,12 @@ export const Header = () => {
       </Link>
       <div className="flex justify-end items-center w-56">
         <ThemeToggler />
-        <Link
-          to="https://dohi-portfolio.notion.site/be632645758247a097123455c1d918bc?pvs=4"
+        <a
+          href="https://dohi-portfolio.notion.site/be632645758247a097123455c1d918bc?pvs=4"
           className="w-24 text-base border-[1px] justify-center items-center h-8 rounded-2xl text-text-color bg-bg-color hover:text-bg-color hover:bg-text-color border-text-color md:flex hidden ml-8"
         >
           About
-        </Link>
+        </a>
       </div>
     </div>
   )

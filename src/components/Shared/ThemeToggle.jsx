@@ -5,7 +5,6 @@ import { useRecoilState } from "recoil"
 import { themeState } from "../../state/Theme"
 const ThemeButton = () => {
   const [localTheme, setLocalTheme] = useRecoilState(themeState)
-  console.log(localTheme)
   return (
     <ThemeToggler>
       {({ theme, toggleTheme }) => (

@@ -8,21 +8,22 @@ import Seo from "../components/shared/seo"
 interface IIndexPage {
   data: {
     allMarkdownRemark: {
-      edges: IPostItem[]
+      nodes: IPostItem[]
     }
   }
 }
 const BlogIndex = ({
   data: {
-    allMarkdownRemark: { edges },
+    allMarkdownRemark: { nodes },
   },
 }: IIndexPage) => {
+  console.log(nodes)
   return (
     <>
       <Seo title="donglog" description="donghun's TechBlog" />
-      <RecentPostList postList={edges} />
-      <Layout width="w-4/5">
-        <PostList postList={edges} />
+      <RecentPostList postList={nodes} />
+      <Layout width="lg:w-[75%] w-[85%]">
+        <PostList postList={nodes} />
       </Layout>
     </>
   )
@@ -31,25 +32,23 @@ const BlogIndex = ({
 export const getPostList = graphql`
   {
     allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "YYYY.MM.DD")
-            title
-            description
-            tags
-            thumbnail {
-              childImageSharp {
-                gatsbyImageData
-              }
+      nodes {
+        id
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "YYYY.MM.DD")
+          title
+          description
+          tags
+          thumbnail {
+            childImageSharp {
+              gatsbyImageData
             }
           }
-          timeToRead
         }
+        timeToRead
       }
     }
   }

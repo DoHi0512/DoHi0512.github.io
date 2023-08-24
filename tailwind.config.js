@@ -10,9 +10,9 @@ module.exports = {
         Fly: {
           "0%": { transform: "rotate(0)" },
           "25%": {
-            transform: "rotate(-5deg) translateX(1rem) translateY(.3rem)",
+            transform: "rotate(-3deg) translateX(1rem) translateY(.3rem)",
           },
-          "75%": { transform: "rotate(6deg) translateY(-.4rem)" },
+          "75%": { transform: "rotate(5deg) translateY(-.4rem)" },
           "100%": { transform: "rotate(0deg) " },
         },
       },

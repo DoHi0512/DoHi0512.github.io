@@ -22,13 +22,7 @@ export const Filter = ({
   const [tagList, setTagList] = useState<string[]>([])
   const [activeIdx, setActiveIdx] = useState<number>(0)
   useEffect(() => {
-    const data = postList.flatMap(
-      ({
-        node: {
-          frontmatter: { tags },
-        },
-      }) => tags || []
-    )
+    const data = postList.flatMap(({ frontmatter: { tags } }) => tags || [])
     const tagSet = new Set(data)
     setTagList(["전체", ...tagSet])
   }, [postList])

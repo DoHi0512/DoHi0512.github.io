@@ -22,8 +22,7 @@ export const RecentPostLayout = ({
     2: "col-start-1 col-end-4",
     3: "row-start-1 row-end-3",
   }
-
-  const GridItem = postList.map(({ node: { fields, frontmatter } }, idx) => {
+  const GridItem = postList.map(({ fields, frontmatter }, idx) => {
     return (
       <RecentPostItem
         link={fields.slug}
