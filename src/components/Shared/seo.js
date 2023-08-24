@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet"
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-
 const Seo = ({ description, title }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -34,8 +33,8 @@ const Seo = ({ description, title }) => {
         content={site.siteMetadata?.social?.instagram || ``}
       />
       <meta
-        name="google-site-verification"
-        content={process.env.GATSBY_SITE_KEY}
+        name="naver-site-verification"
+        content="a310cab35c8122abe717700aa145f7c11954dd6f"
       />
       <meta name="instagram:title" content={title} />
       <meta name="instagram:description" content={metaDescription} />
