@@ -1,22 +1,24 @@
-import { IPostItem } from "../../../types/PostItem.type"
-import React from "react"
+import { IPostFrontmatter, IPostItem } from "../../../types/PostItem.type"
+import React, { useState } from "react"
 import PostItem from "./PostItem"
 import Fuse from "fuse.js"
 import { graphql, useStaticQuery } from "gatsby"
-import SearchBar from "../../Shared/SearchBar"
 import { IFuseItem } from "src/types/Fuse.type"
+import Filter from "../Filter"
 export const PostList = ({ postList }: { postList: IPostItem[] }) => {
+  const [category, setCategory] = useState("전체")
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark {
         nodes {
+          rawMarkdownBody
           id
           excerpt(pruneLength: 120)
           fields {
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "YYYY.MM.DD")
             title
             description
             tags
@@ -35,8 +37,12 @@ export const PostList = ({ postList }: { postList: IPostItem[] }) => {
   const fuse = new Fuse(data.allMarkdownRemark.nodes, {
     keys: ["frontmatter.title", "rawMarkdownBody"],
   })
-  const results = fuse.search(query) as IFuseItem[]
-  const QueryList = results.map(
+  const results = !!query
+    ? (fuse.search(query) as IFuseItem[])
+    : data.allMarkdownRemark.nodes.map((node: IPostFrontmatter) => ({
+        item: node,
+      }))
+  const QueryList = results?.map(
     ({
       item: {
         excerpt,
@@ -46,7 +52,8 @@ export const PostList = ({ postList }: { postList: IPostItem[] }) => {
         timeToRead,
       },
     }: IFuseItem) => {
-      return (
+      return frontmatter.tags?.indexOf(category) !== -1 ||
+        category === "전체" ? (
         <PostItem
           {...frontmatter}
           excerpt={excerpt}
@@ -54,41 +61,18 @@ export const PostList = ({ postList }: { postList: IPostItem[] }) => {
           link={slug}
           timeToRead={timeToRead}
         />
-      )
-    }
-  )
-  const AllList = postList.map(
-    ({
-      node: {
-        excerpt,
-        fields: { slug },
-        frontmatter,
-        id,
-        timeToRead,
-      },
-    }: IPostItem) => {
-      return (
-        <PostItem
-          {...frontmatter}
-          excerpt={excerpt}
-          key={id}
-          link={slug}
-          timeToRead={timeToRead}
-        />
-      )
+      ) : null
     }
   )
   return (
-    <div>
-      <SearchBar setData={setQuery} />
-      <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-14 lg:mt-10 mt-10">
-        {query
-          ? QueryList.length
-            ? QueryList
-            : "검색 결과가 없습니다!"
-          : AllList}
+    <>
+      <div className="flex w-full h-[3.5rem] mt-24 justify-between">
+        <Filter postList={postList} setData={setCategory} setTitle={setQuery} />
       </div>
-    </div>
+      <div className="w-full grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-14 mt-10">
+        {QueryList.length ? QueryList : "검색 결과가 없습니다!"}
+      </div>
+    </>
   )
 }
 
