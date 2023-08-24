@@ -5,7 +5,21 @@ module.exports = {
     "./src/components/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        Fly: {
+          "0%": { transform: "rotate(0)" },
+          "25%": {
+            transform: "rotate(-5deg) translateX(1rem) translateY(.3rem)",
+          },
+          "75%": { transform: "rotate(6deg) translateY(-.4rem)" },
+          "100%": { transform: "rotate(0deg) " },
+        },
+      },
+      animation: {
+        fly: "Fly 3.5s ease-in-out infinite",
+      },
+    },
     colors: {
       "Grayscale/10": "#F4F4F4",
       "Grayscale/20": "#C6C6C6",
