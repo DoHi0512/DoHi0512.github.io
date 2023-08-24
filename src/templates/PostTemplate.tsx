@@ -1,13 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { IPostItem } from "src/types/PostItem.type"
-import PostContent from "../components/Post/PostContent"
-import PostHeader from "../components/Post/PostHeader"
-import Comments from "../components/Post/Comments"
+import PostContent from "../components/post/PostContent"
+import PostHeader from "../components/post/PostHeader"
+import Comments from "../components/post/Comments"
 import { useRecoilValue } from "recoil"
 import { themeState } from "../state/Theme"
-import Layout from "../components/Shared/Layout"
-
+import Layout from "../components/shared/Layout"
+import Seo from "../components/shared/seo"
 interface IPostTemplateProps {
   data: {
     allMarkdownRemark: {
@@ -26,7 +26,8 @@ const PostTemplate = ({
   const theme = useRecoilValue(themeState)
   return (
     <>
-      <Layout width="w-full">
+      <Seo title={frontmatter.title} description={frontmatter.description} />
+      <Layout width="w-full" itemCenter="items-center">
         <PostHeader {...frontmatter} />
         <PostContent html={html} />
         <Comments

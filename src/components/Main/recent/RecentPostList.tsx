@@ -4,7 +4,7 @@ import RecentPostLayout from "./RecentPostLayout"
 import { IPostItem } from "src/types/PostItem.type"
 export const RecentPostList = ({ postList }: { postList: IPostItem[] }) => {
   const settings = {
-    className: "w-screen mt-32",
+    className: "w-full  mt-16 duration-300",
     dots: true,
     infinite: true,
     autoplay: true,

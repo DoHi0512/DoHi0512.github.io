@@ -31,11 +31,12 @@ export const RecentPostLayout = ({
         description={frontmatter.description}
         thumbnail={frontmatter.thumbnail}
         className={idx === 0 ? gridItem[option] : ""}
+        key={idx}
       />
     )
   })
   return (
-    <div className={`${gridTrack[option]} auto-rows-fr auto-cols-fr h-[35rem]`}>
+    <div className={`${gridTrack[option]} auto-rows-fr auto-cols-fr h-[30rem]`}>
       {GridItem}
     </div>
   )
