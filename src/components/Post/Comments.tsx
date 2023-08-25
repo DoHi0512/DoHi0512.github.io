@@ -1,17 +1,13 @@
 import React, { createRef, useLayoutEffect } from "react"
-
 const src = "https://utteranc.es/client.js"
-
 export interface IUtterancesProps {
   repo: string
   theme: string
 }
-
 const Comments: React.FC<IUtterancesProps> = React.memo(({ repo, theme }) => {
   const containerRef = createRef<HTMLDivElement>()
   useLayoutEffect(() => {
     const utterances = document.createElement("script")
-
     const attributes = {
       src,
       repo,

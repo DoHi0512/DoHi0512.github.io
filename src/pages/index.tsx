@@ -17,7 +17,6 @@ const BlogIndex = ({
     allMarkdownRemark: { nodes },
   },
 }: IIndexPage) => {
-  console.log(nodes)
   return (
     <>
       <Seo title="donglog" description="donghun's TechBlog" />

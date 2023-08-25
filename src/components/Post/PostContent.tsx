@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useIntersectionObserver } from "../../hooks/useIntersactionObserver"
-import { IHeadings } from "src/types/Post.type"
 import TOC from "./TOC"
+import { IHeadings } from "src/types/PostItem.type"
 const PostContent = ({ html }: { html: string }) => {
   const [headings, setHeadings] = React.useState<IHeadings[]>([])
   const [activeId, setActiveId] = useState("")
@@ -21,8 +21,8 @@ const PostContent = ({ html }: { html: string }) => {
 
   useEffect(() => {
     const targetElements = headings
-      .map(info => document.getElementById(info.id)) // Use info.id instead of info.text
-      .filter(el => el !== null) // Filter out null values
+      .map(info => document.getElementById(info.id))
+      .filter(el => el !== null)
     addIntersectHandler(
       targetElements,
       {
@@ -30,7 +30,7 @@ const PostContent = ({ html }: { html: string }) => {
         rootMargin: "0px 0px -95% 0px",
         threshold: 0,
       },
-      (entries: any, observer: any) => {
+      entries => {
         entries.forEach((entry: any) => {
           if (entry.isIntersecting && entry.target?.id) {
             setActiveId(entry.target?.id)

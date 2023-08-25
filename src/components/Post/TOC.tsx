@@ -1,5 +1,5 @@
-import { IHeadings } from "src/types/Post.type"
 import React from "react"
+import { IHeadings } from "src/types/PostItem.type"
 const TOC = ({ headings }: { headings: IHeadings[] }) => {
   return (
     <div className="sticky top-20 h-full whitespace-nowrap w-1/4 pl-10 lg:flex hidden sidebar">

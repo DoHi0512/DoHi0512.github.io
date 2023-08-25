@@ -1,15 +1,15 @@
-import React, { useState } from "react"
+import React from "react"
 import { ThemeToggler } from "gatsby-plugin-dark-mode"
 import { BsFillMoonFill } from "react-icons/bs"
 import { useRecoilState } from "recoil"
 import { themeState } from "../../state/Theme"
 const ThemeButton = () => {
-  const [localTheme, setLocalTheme] = useRecoilState(themeState)
+  const [, setLocalTheme] = useRecoilState(themeState)
   return (
     <ThemeToggler>
       {({ theme, toggleTheme }) => (
-        <div
-          className="w-24 h-8 rounded-2xl bg-text-color flex flex-row items-center relative justify-end cursor-pointer "
+        <button
+          className="w-24 h-8 rounded-2xl bg-text-color flex items-center relative justify-end cursor-pointer "
           onClick={() => {
             toggleTheme(theme === "light" ? "dark" : "light")
             setLocalTheme(theme === "light" ? "dark" : "light")
@@ -24,7 +24,7 @@ const ThemeButton = () => {
             <span className="text-sm mr-3 text-white">다크모드</span>
           </div>
           <span className="absolute text-xs text-black mr-2">On</span>
-        </div>
+        </button>
       )}
     </ThemeToggler>
   )
