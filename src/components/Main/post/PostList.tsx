@@ -1,4 +1,4 @@
-import { IPostFrontmatter, IPostItem } from "../../../types/PostItem.type"
+import { IPostItem } from "../../../types/PostItem.type"
 import React, { useState } from "react"
 import PostItem from "./PostItem"
 import Fuse from "fuse.js"

@@ -11,16 +11,16 @@ import Seo from "../components/shared/seo"
 interface IPostTemplateProps {
   data: {
     allMarkdownRemark: {
-      edges: IPostItem[]
+      nodes: IPostItem[]
     }
   }
 }
 const PostTemplate = ({
   data: {
-    allMarkdownRemark: { edges },
+    allMarkdownRemark: { nodes },
   },
 }: IPostTemplateProps) => {
-  const { html, frontmatter } = edges[0]
+  const { html, frontmatter } = nodes[0]
   const theme = useRecoilValue(themeState)
   return (
     <>
@@ -42,17 +42,15 @@ export default PostTemplate
 export const queryMarkdownDataBySlug = graphql`
   query queryMarkdownDataBySlug($slug: String) {
     allMarkdownRemark(filter: { fields: { slug: { eq: $slug } } }) {
-      edges {
-        node {
-          html
-          frontmatter {
-            title
-            date(formatString: "YYYY.MM.DD")
-            tags
-            thumbnail {
-              childImageSharp {
-                gatsbyImageData(width: 768, height: 400)
-              }
+      nodes {
+        html
+        frontmatter {
+          title
+          date(formatString: "YYYY.MM.DD")
+          tags
+          thumbnail {
+            childImageSharp {
+              gatsbyImageData(width: 768, height: 400)
             }
           }
         }
