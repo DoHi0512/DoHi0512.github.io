@@ -74,7 +74,7 @@
   }
 
   code[class*="language-text"] {
-    @apply bg-bg-inline text-text-color !important;
+    @apply bg-bg-inline text-[#eb5757] !important;
   }
   code[class*="language-"],
   pre[class*="language-"] {
