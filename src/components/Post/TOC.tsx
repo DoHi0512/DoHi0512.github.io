@@ -9,7 +9,7 @@ const TOC = ({ headings }: { headings: IHeadings[] }) => {
             href={"#" + id}
             className={`${"level-" + level} ${
               focus ? "focus" : ""
-            } hover:text-text-color whitespace-normal`}
+            } hover:text-text-color whitespace-normal pr-6`}
             key={idx}
           >
             {text}
