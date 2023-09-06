@@ -29,7 +29,7 @@ export const PostItem = ({
         className="w-full object-cover h-[15rem] rounded-t-lg"
       />
       <div className="w-[85%] flex flex-col ">
-        <span className="text-2xl font-bold text-omit mt-4">{title}</span>
+        <span className="text-xl font-bold text-omit mt-4 ">{title}</span>
         <span className="text-excerpt mt-2 h-[3rem]">{description}</span>
         <div className="flex flex-row mt-6">
           {tags?.map((tag, idx) => (
