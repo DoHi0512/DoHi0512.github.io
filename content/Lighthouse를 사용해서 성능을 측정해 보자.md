@@ -3,7 +3,7 @@ title: "Lighthouse를 사용해서 성능을 측정해 보자"
 date: "2023-08-22T21:00"
 description: "Lighthouse를 사용해서 성능을 측정하는 방법을 알아보자"
 tags: ["프론트엔드", "최적화"]
-thumbnail: "./optimize2.png"
+thumbnail: "./optimize2.webp"
 ---
 
 # 서론

@@ -3,7 +3,7 @@ title: "검색창에 www.google.com을 입력하면 무슨 일이 일어날까?"
 date: "2023-09-04T23:00"
 description: "검색창에 주소를 입력하고 들어가기까지의 과정을 알아보자"
 tags: ["프론트엔드", "면접", "CS"]
-thumbnail: "./google.png"
+thumbnail: "./google.webp"
 ---
 
 
