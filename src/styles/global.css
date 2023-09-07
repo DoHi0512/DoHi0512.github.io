@@ -16,8 +16,9 @@
   }
   h1,
   h2,
-  h3 {
-    @apply font-bold lg:mb-6 mb-2 text-text-color;
+  h3,
+  h4 {
+    @apply font-bold lg:mb-4 mb-2 text-text-color;
   }
   * + h1,
   * + h2,
@@ -27,7 +28,7 @@
 
   hr + h1,
   hr + h2,
-  hr + h3 {
+  hr + h3 hr + h4 {
     @apply mt-0;
   }
   h1 {
@@ -43,7 +44,9 @@
   h3 {
     @apply lg:text-2xl text-base;
   }
-
+  h4 {
+    @apply lg:text-lg text-sm;
+  }
   blockquote {
     @apply mt-8 mr-0 border-l-4 border-[#20c997] rounded-tr-[4px] rounded-br-[4px] bg-bg-color2 p-[1rem_1rem_1rem_2rem] text-text-color;
   }
