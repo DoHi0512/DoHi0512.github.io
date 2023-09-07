@@ -39,7 +39,7 @@
     @apply lg:text-3xl text-xl;
   }
   p {
-    @apply lg:text-lg text-sm text-text-color;
+    @apply lg:text-lg text-sm font-light text-text-color;
   }
   h3 {
     @apply lg:text-2xl text-base;
@@ -77,7 +77,7 @@
   }
 
   code[class*="language-text"] {
-    @apply bg-bg-inline text-[#eb5757] !important;
+    @apply bg-bg-inline lg:text-base text-sm text-[#eb5757] !important;
   }
   code[class*="language-"],
   pre[class*="language-"] {
