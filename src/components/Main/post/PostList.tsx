@@ -5,7 +5,7 @@ import Fuse from "fuse.js"
 import Filter from "../Filter"
 export const PostList = ({ postList }: { postList: IPostItem[] }) => {
   const [category, setCategory] = useState("전체")
-  const [query, setQuery] = React.useState("")
+  const [query, setQuery] = useState("")
   const fuse = new Fuse(postList, {
     keys: ["frontmatter.title", "rawMarkdownBody"],
   })

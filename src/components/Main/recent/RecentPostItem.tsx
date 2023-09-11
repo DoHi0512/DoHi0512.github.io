@@ -18,7 +18,7 @@ export const RecentPostItem = ({
   return (
     <Link
       to={link}
-      className={`relative flex justify-center items-center object-contain bg-black ${className} overflow-hidden`}
+      className={`relative flex justify-center items-center object-contain  bg-black ${className} border-[1px] z-10 border-white overflow-hidden`}
     >
       <div className="absolute z-10 w-[80%] text-white font-thin text-center flex flex-col pointer-events-none">
         <span className="text-[1.75rem] leading-tight font-bold">{title}</span>
@@ -28,7 +28,7 @@ export const RecentPostItem = ({
         loading="eager"
         image={gatsbyImageData}
         alt="post image"
-        className="opacity-40 relative h-full w-full hover:scale-110 duration-300"
+        className="opacity-40 relative h-full w-full hover:scale-110 duration-300 "
       />
     </Link>
   )
