@@ -19,7 +19,7 @@ const BlogIndex = ({
 }: IIndexPage) => {
   return (
     <>
-      <Seo title="donglog" description="donghun's TechBlog" />
+      <Seo description="donghun's TechBlog" />
       <RecentPostList postList={nodes} />
       <Layout width="lg:w-[75%] w-[85%]">
         <PostList postList={nodes} />
