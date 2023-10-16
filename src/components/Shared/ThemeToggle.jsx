@@ -21,7 +21,7 @@ const ThemeButton = () => {
             }`}
           >
             <BsFillMoonFill size={"1rem"} color="white" className="ml-3" />
-            <span className="text-sm mr-3 text-white">다크모드</span>
+            <span className="text-sm mr-3 text-white whitespace-nowrap">다크모드</span>
           </div>
           <span className="absolute text-xs text-black mr-2">On</span>
         </button>
