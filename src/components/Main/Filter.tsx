@@ -1,9 +1,8 @@
 import { IPostItem } from "src/types/PostItem.type"
 import React, { ChangeEvent, useEffect, useState } from "react"
-import Tag from "./post/Tag"
-import HorizontalScroll from "react-scroll-horizontal"
 import { AiOutlineSearch } from "react-icons/ai"
 import lodash from "lodash"
+import FilterTag from "./post/FilterTag"
 export const Filter = ({
   postList,
   setData,
@@ -36,12 +35,12 @@ export const Filter = ({
         key={idx}
         className="cursor-pointer"
       >
-        <Tag tag={tag} key={idx} active={idx === activeIdx} />
+        <FilterTag tag={tag} key={idx} active={idx === activeIdx} />
       </div>
     )
   })
   return (
-    <div className="h-full w-full border-l-8 justify-between relative border-Greenlight/10 flex items-center  bg-bg-color2 duration-300">
+    <div className="h-full w-full border-l-8 gap-6 relative border-Greenlight/10 flex items-center  bg-bg-color2 duration-300">
       <button className="peer ml-6 flex z-10 ">
         <AiOutlineSearch size="2rem" />
       </button>
@@ -50,11 +49,9 @@ export const Filter = ({
         placeholder="검색어를 입력하세요"
         className="duration-300 text-text-color indent-20 placeholder:text-Grayscale/30 bg-bg-color2 absolute h-full w-0 focus:w-full peer-focus:w-full border-text-color outline-none focus:border-[.5px] peer-focus:border-[.5px] text-lg"
       />
-      <div className="overflow-auto w-[90%] scroll-hidden flex justify-between">
-        {/* <HorizontalScroll className="w-full h-full" reverseScroll={true}> */}
+      <div className="overflow-auto w-full gap-4 scroll-hidden flex">
         {TagList}
       </div>
-      {/* </HorizontalScroll> */}
     </div>
   )
 }
