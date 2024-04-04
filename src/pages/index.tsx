@@ -1,10 +1,11 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/shared/Layout"
-import { PostList } from "../components/main/post/PostList"
+
+import { PostList } from "../components/Main/post/PostList"
 import { IPostItem } from "../types/PostItem.type"
-import RecentPostList from "../components/main/recent/RecentPostList"
-import Seo from "../components/shared/seo"
+import RecentPostList from "../components/Main/recent/RecentPostList"
+import Seo from "../components/Shared/seo"
+import Layout from "../components/Shared/Layout"
 interface IIndexPage {
   data: {
     allMarkdownRemark: {

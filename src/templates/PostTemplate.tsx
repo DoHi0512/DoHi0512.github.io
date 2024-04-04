@@ -1,13 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { IPostItem } from "src/types/PostItem.type"
-import PostContent from "../components/post/PostContent"
-import PostHeader from "../components/post/PostHeader"
-import Comments from "../components/post/Comments"
+import PostContent from "../components/Post/PostContent"
+import PostHeader from "../components/Post/PostHeader"
+import Comments from "../components/Post/Comments"
 import { useRecoilValue } from "recoil"
 import { themeState } from "../state/Theme"
-import Layout from "../components/shared/Layout"
-import Seo from "../components/shared/seo"
+import Layout from "../components/Shared/Layout"
+import Seo from "../components/Shared/seo"
 interface IPostTemplateProps {
   data: {
     allMarkdownRemark: {
