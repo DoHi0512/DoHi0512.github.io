@@ -14,11 +14,11 @@ export const Header = () => {
           className="z-10 object-contain w-[8rem] h-[full]"
         />
       </Link>
-      <div className="flex justify-end items-center w-56">
+      <div className="flex justify-end items-center">
         <ThemeToggler />
         <a
           href="https://dohi-portfolio.notion.site/be632645758247a097123455c1d918bc?pvs=4"
-          className="w-24 text-base border-[1px] justify-center items-center h-8 rounded-2xl text-text-color bg-bg-color hover:text-bg-color hover:bg-text-color border-text-color md:flex hidden ml-8"
+          className="w-24 text-base border-[1px] duration-300 justify-center items-center h-8 rounded-2xl text-text-color bg-bg-color hover:text-bg-color hover:bg-text-color border-text-color md:flex hidden ml-6"
         >
           About
         </a>

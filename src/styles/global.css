@@ -139,10 +139,6 @@ body,
   height: 100%;
 }
 
-.darkmode {
-  @apply translate-x-[-1.6rem] duration-300;
-}
-
 body {
   --bg-color: #f8f9fa;
   --text-color: #121212;
