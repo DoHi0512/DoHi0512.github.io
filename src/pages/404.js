@@ -1,27 +1,18 @@
 import * as React from "react"
-import LottieLight from "../assets/light.json"
-import LottieDark from "../assets/dark.json"
 import Layout from "../components/Shared/Layout"
 import Seo from "../components/Shared/seo"
-import Lottie from "react-lottie"
-import { useRecoilValue } from "recoil"
-import { themeState } from "../state/Theme"
 import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 const NotFoundPage = ({ data, location }) => {
-  const theme = useRecoilValue(themeState)
-  const defaultOption = {
-    loop: false,
-    autoplay: true,
-    animationData: theme === "light" ? LottieLight : LottieDark,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  }
   return (
     <Layout>
       <Seo title="404:Not Found" description="페이지를 찾을수 없음" />
       <div className="flex justify-center items-center flex-col mt-16">
-        <Lottie options={defaultOption} className="h-full w-full" l />
+        <StaticImage
+          src="../assets/404.png"
+          className="object-contain w-[30rem]"
+          alt="404"
+        />
         <span className="text-4xl font-bold text-text-color">
           아무것도 없네요!
         </span>
