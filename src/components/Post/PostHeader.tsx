@@ -14,7 +14,7 @@ const PostHeader = ({
     <div className="h-[30rem] mt-16 w-full relative flex justify-center items-center bg-black">
       <GatsbyImage
         image={gatsbyImageData}
-        className="w-full h-full object-cover absolute opacity-40"
+        className="w-full h-full bg-white object-cover absolute opacity-40"
         alt="img"
       />
       <div className="absolute flex flex-col items-center">
