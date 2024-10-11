@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 import { useIntersectionObserver } from "../../hooks/useIntersactionObserver"
 import TOC from "./TOC"
 import { IHeadings } from "src/types/PostItem.type"
+import getHeadings from "src/utils/getHeading"
 const PostContent = ({ html }: { html: string }) => {
   const [headings, setHeadings] = React.useState<IHeadings[]>([])
   const [activeId, setActiveId] = useState("")
   useEffect(() => {
-    const headingElements = document.querySelectorAll("h1, h2, h3")
-    const headings = Array.from(headingElements).map(headingElement => ({
-      id: headingElement.getAttribute("id") || "",
-      text: headingElement.textContent || "",
-      level: Number(headingElement.tagName.charAt(1)),
-      focus: headingElement.getAttribute("id") === activeId,
-    }))
-    setHeadings(headings)
+    const newHeadings = useMemo(() => getHeadings(activeId), [activeId])
+    setHeadings(newHeadings)
   }, [activeId])
 
   const { addIntersectHandler, removeIntersectHandler } =
