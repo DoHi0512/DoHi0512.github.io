@@ -7,7 +7,7 @@ const PostContent = ({ html }: { html: string }) => {
   const [headings, setHeadings] = React.useState<IHeadings[]>([])
   const [activeId, setActiveId] = useState("")
   useEffect(() => {
-    const newHeadings = useMemo(() => getHeading(activeId), [activeId])
+    const newHeadings = getHeading(activeId)
     setHeadings(newHeadings)
   }, [activeId])
 
