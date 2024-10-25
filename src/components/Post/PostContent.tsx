@@ -2,12 +2,12 @@ import React, { useEffect, useMemo, useState } from "react"
 import { useIntersectionObserver } from "../../hooks/useIntersactionObserver"
 import TOC from "./TOC"
 import { IHeadings } from "src/types/PostItem.type"
-import getHeadings from "src/utils/getHeading"
+import getHeading from "../../utils/getHeading"
 const PostContent = ({ html }: { html: string }) => {
   const [headings, setHeadings] = React.useState<IHeadings[]>([])
   const [activeId, setActiveId] = useState("")
   useEffect(() => {
-    const newHeadings = useMemo(() => getHeadings(activeId), [activeId])
+    const newHeadings = useMemo(() => getHeading(activeId), [activeId])
     setHeadings(newHeadings)
   }, [activeId])
 
@@ -31,7 +31,7 @@ const PostContent = ({ html }: { html: string }) => {
             setActiveId(entry.target?.id)
           }
         })
-      }
+      },
     )
     return () => {
       removeIntersectHandler()

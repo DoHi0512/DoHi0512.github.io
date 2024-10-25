@@ -1,4 +1,4 @@
-const getHeadings = (activeId: string) => {
+const getHeading = (activeId: string) => {
   const headingElements = document.querySelectorAll("h1, h2, h3")
   const headings = Array.from(headingElements).map(headingElement => ({
     id: headingElement.getAttribute("id") || "",
@@ -10,4 +10,4 @@ const getHeadings = (activeId: string) => {
   return headings
 }
 
-export default getHeadings
+export default getHeading
