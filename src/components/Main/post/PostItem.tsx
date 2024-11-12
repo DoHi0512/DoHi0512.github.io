@@ -28,10 +28,10 @@ export const PostItem = ({
         image={gatsbyImageData}
         className="w-full object-cover h-[15rem] rounded-t-lg"
       />
-      <div className="w-[85%] flex flex-col ">
+      <div className="w-[85%] flex-1 flex flex-col ">
         <span className="text-xl font-bold text-omit mt-4 ">{title}</span>
         <span className="text-excerpt mt-2 h-[3rem]">{description}</span>
-        <div className="flex flex-row mt-6">
+        <div className="flex flex-wrap gap-y-2 flex-1 mt-6 ">
           {tags?.map((tag, idx) => <Tag tag={tag} key={idx} />)}
         </div>
         <span className="flex justify-between w-full pb-4 mt-4">
